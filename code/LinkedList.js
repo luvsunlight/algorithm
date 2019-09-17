@@ -1,4 +1,4 @@
-const chalk = require("chalk")
+const log = require("./log")
 
 class Node {
 	constructor(data, next = null) {
@@ -73,33 +73,42 @@ let b = new LinkedList([1, 2, 3])
 
 let c = new LinkedList([])
 
-// console.log(chalk.green("testing b"))
-// b.list()
+log.green("testing add")
 
-// console.log(chalk.blue("add 'a'"))
-// b.addNode("a", 1)
-// b.list()
+let test_add1 = new LinkedList([1, 2, 3])
+let test_add2 = new LinkedList([])
 
-// console.log(chalk.blue("delete 2"))
-// b.deleteNode("a")
-// b.list()
+test_add1.list()
 
-// console.log(chalk.yellow("----"))
+log.blue("add 'a")
+test_add1.addNode("a", 1)
+test_add1.list()
 
-// console.log(chalk.green("testing c"))
-// c.list()
+test_add2.list()
 
-// console.log(chalk.blue("add 1"))
-// c.addNode(1)
-// c.list()
+log.blue("add 'a")
+test_add2.addNode("a", 1)
+test_add2.list()
 
-// console.log(chalk.blue("delete 1"))
-// c.deleteNode(1)
-// c.list()
+log.yellow("----")
 
-console.log(chalk.yellow("----"))
+log.green("testing delete")
 
-console.log(chalk.green("testing middleNode"))
+test_add1.list()
+
+log.blue("delete a")
+test_add1.deleteNode("a")
+test_add1.list()
+
+test_add2.list()
+
+log.blue("delete a")
+test_add2.deleteNode("a")
+test_add2.list()
+
+log.yellow("----")
+
+log.green("testing middleNode")
 
 let test_mid1 = new LinkedList([1, 2])
 let test_mid2 = new LinkedList([1, 2, 3])
