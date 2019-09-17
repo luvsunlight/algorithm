@@ -18,13 +18,13 @@
 
 ```
 getMidNode() {
-		let [fastNode, slowNode] = [this.head, this.head]
-		while (fastNode) {
-			fastNode = fastNode.next ? fastNode.next.next : fastNode.next
-			if (fastNode) slowNode = slowNode.next
-		}
-		return slowNode
+	let [fastNode, slowNode] = [this.head, this.head]
+	while (fastNode) {
+		fastNode = fastNode.next ? fastNode.next.next : fastNode.next
+		if (fastNode) slowNode = slowNode.next
 	}
+	return slowNode
+}
 ```
 
 </details>
