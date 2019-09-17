@@ -15,6 +15,7 @@
 
 <details>
 <summary>点击展开</summary>
+
 ```
 getMidNode() {
 		let [fastNode, slowNode] = [this.head, this.head]
@@ -25,5 +26,6 @@ getMidNode() {
 		return slowNode
 	}
 ```
+
 </details>
 
