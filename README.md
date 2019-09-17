@@ -2,7 +2,7 @@
 
 * 数据结构
     * 数组
-    * 链表
+    * [链表](https://github.com/luvsunlight/algorithm/tree/master/%E9%93%BE%E8%A1%A8)
     * 栈
     * 队列
 * 算法
