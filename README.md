@@ -1,7 +1,7 @@
 # Algorithm
 
 * 数据结构
-    * 数组
+    * [数组](https://github.com/luvsunlight/algorithm/tree/master/%E6%95%B0%E7%BB%84)
     * [链表](https://github.com/luvsunlight/algorithm/tree/master/%E9%93%BE%E8%A1%A8)
     * 栈
     * 队列
