@@ -1,5 +1,4 @@
 # Stack 栈
 
-* 用数组实现一个顺序栈
-* 用链表实现一个链式栈
-* 编程模拟一个浏览器的前进，后退功能
+* [顺序栈和链式栈](https://github.com/luvsunlight/algorithm/tree/master/%E6%A0%88/stacks.md)
+* [编程模拟一个浏览器的前进，后退功能](https://github.com/luvsunlight/algorithm/tree/master/%E6%A0%88/browser.md)

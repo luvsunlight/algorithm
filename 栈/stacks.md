@@ -1,3 +1,24 @@
+# 链式栈和顺序栈
+
+## 描述
+
+分别用数组实现一个顺序栈和用链表实现一个链式栈
+
+## 思路
+
+<details>
+<summary>点击展开</summary>
+
+主要是要注意链表为空的情况
+
+</details>
+
+## 代码
+
+<details>
+<summary>点击展开</summary>
+
+```
 const { LinkedList, Node } = require("./LinkedList")
 
 class Stack {
@@ -59,5 +80,6 @@ class LinkedListStack {
 		}
 	}
 }
+```
 
-module.exports = { Stack, LinkedListStack }
+</details>
