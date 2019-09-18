@@ -3,7 +3,7 @@
 * [实现单链表反转](https://github.com/luvsunlight/algorithm/blob/master/%E9%93%BE%E8%A1%A8/reverseLinkedList.md)
 * [实现两个有序的链表合并为一个有序链表](https://github.com/luvsunlight/algorithm/blob/master/%E9%93%BE%E8%A1%A8/mergeSortedLinkedList.md)
 * [求链表的中间节点](https://github.com/luvsunlight/algorithm/blob/master/%E9%93%BE%E8%A1%A8/getMiddleNode.md)
-* 链表中环的检测
+* [链表中环的检测](https://github.com/luvsunlight/algorithm/blob/master/%E9%93%BE%E8%A1%A8/detectCycle.md)
 * [删除链表倒数第n个节点](https://github.com/luvsunlight/algorithm/blob/master/%E9%93%BE%E8%A1%A8/deleteInverseNode.md)
 * [LRU算法](https://github.com/luvsunlight/algorithm/blob/master/%E9%93%BE%E8%A1%A8/LRU.md)
 * [判断单链表是否为回文字符串](https://github.com/luvsunlight/algorithm/blob/master/%E9%93%BE%E8%A1%A8/isLinkedListAPalindrome.md)
