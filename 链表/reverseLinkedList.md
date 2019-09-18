@@ -16,8 +16,26 @@ eg.
 <details>
 <summary>点击展开</summary>
 
-使用快慢指针，慢指针每前进一步就将data压入栈，直至快指针遍历完链表。然后快指针继续遍历，每遍历一步，就从栈里pop出一个进行对比，必须要每一步都完全一致才
+使用三个变量current,prev,next来记录变量快照
 
 </details>
 
 ## 代码
+
+<details>
+<summary>点击展开</summary>
+
+```
+revert() {
+		let [prevNode, currentNode, nextNode] = [null, this.head, this.head]
+		while (nextNode) {
+			nextNode = currentNode.next
+			currentNode.next = prevNode
+			prevNode = currentNode
+			currentNode = nextNode
+		}
+		this.head = prevNode
+	}
+```
+
+</details>
