@@ -8,7 +8,7 @@
     -   [数组](https://github.com/luvsunlight/algorithm/tree/master/%E6%95%B0%E7%BB%84)
     -   [链表](https://github.com/luvsunlight/algorithm/tree/master/%E9%93%BE%E8%A1%A8)
     -   [栈](https://github.com/luvsunlight/algorithm/tree/master/%E6%A0%88)
-    -   [队列]()
+    -   [队列](https://github.com/luvsunlight/algorithm/tree/master/%E9%98%9F%E5%88%97)
 -   算法
     -   递归
     -   排序
