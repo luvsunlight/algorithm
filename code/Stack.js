@@ -8,9 +8,11 @@ class Stack {
 		return Array.prototype.concat(this.data, []).reverse()
 	}
 	list() {
-		console.log("——")
-		this.revert().map(i => console.log(`|${i}|`))
-		console.log("——")
+		let stackStr = "head"
+		this.revert().map(item => {
+			stackStr += ` => ${item}`
+		})
+		console.log(stackStr)
 	}
 	push(n) {
 		this.data.push(n)
@@ -25,14 +27,16 @@ class LinkedListStack {
 		this.data = new LinkedList(data)
 	}
 	list() {
+		let stackStr = "head"
+		this.data.revert()
 		let node = this.data.head
-		console.log("——")
-		while (node) {
-			console.log(`|${node.data}|`)
 
+		while (node) {
+			stackStr += ` => ${node.data}`
 			node = node.next
 		}
-		console.log("——")
+		console.log(stackStr)
+		this.data.revert()
 	}
 	pop() {
 		let node = this.data.head
