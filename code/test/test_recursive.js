@@ -1,5 +1,5 @@
 const { fab, fac, listSet } = require("../Recursive")
-const log = require("../log")
+const { log } = require("../util")
 
 log.green("testing fab")
 

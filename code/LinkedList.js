@@ -1,5 +1,3 @@
-const log = require("./log")
-
 class Node {
 	constructor(data, next = null) {
 		Object.assign(this, { data, next })

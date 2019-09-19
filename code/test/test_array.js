@@ -1,4 +1,4 @@
-const log = require("../log")
+const { log } = require("../util")
 const { SortedArray } = require("../Array")
 
 let a = [1, 2]

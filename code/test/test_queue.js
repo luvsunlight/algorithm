@@ -1,4 +1,4 @@
-const log = require("../log")
+const { log } = require("../util")
 const { Queue, LinkedListQueue } = require("../Queue")
 
 log.green("testing queue...")

@@ -1,4 +1,4 @@
-const log = require("../log")
+const { log } = require("../util")
 const { Stack, LinkedListStack } = require("../Stack")
 
 let stack = new Stack([1, 2, 3])
