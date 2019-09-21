@@ -4,13 +4,14 @@ const log = {}
 
 colors.map(color => (log[color] = msg => console.log(chalk[color](msg))))
 
-const timer = (fn, args, showArray = true) => {
+const timer = (fn, args, showArgs = true, msg = "") => {
 	let start = new Date().valueOf()
 	fn(args)
 	let end = new Date().valueOf()
-	let result = showArray
-		? chalk.red(`[cost ${end - start} ms] `) + args
-		: chalk.red(`[cost ${end - start} ms] `)
+	let result = ""
+	result += msg ? `${chalk.green(msg)}${chalk.yellow(" => ")}` : ""
+	result += `[cost ${chalk.red(end - start)} ms]`
+	result += ` (${showArgs ? args : ""})`
 	console.log(result)
 }
 
