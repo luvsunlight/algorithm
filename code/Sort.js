@@ -132,6 +132,40 @@ const findKstNum = (a, k) => {
 	}
 }
 
+const bucketSort = (a, bucketsNum = 100) => {
+	let buckets = []
+	let result = []
+	for (let i = 0; i < bucketsNum; i++) {
+		buckets.push([])
+	}
+	a.map(n => {
+		let bucketIndex = Math.ceil(n / Math.ceil(a.length / bucketsNum)) - 1
+		buckets[bucketIndex].push(n)
+	})
+	buckets.map(bucket => {
+		fastSort(bucket)
+		bucket.map(n => result.push(n))
+	})
+	result.map((n, index) => (a[index] = n))
+	return a
+}
+
+const counterSort = a => {
+	const bucketsNum = a.length
+	let buckets = []
+	let result = []
+	for (let i = 0; i < bucketsNum; i++) {
+		buckets.push([])
+	}
+	a.map(n => {
+		let bucketIndex = Math.ceil(n / Math.ceil(a.length / bucketsNum)) - 1
+		buckets[bucketIndex].push(n)
+	})
+	buckets.map(bucket => bucket.map(n => result.push(n)))
+	result.map((n, index) => (a[index] = n))
+	return a
+}
+
 module.exports = {
 	bubbleSort,
 	insertionSort,
@@ -139,5 +173,7 @@ module.exports = {
 	merge,
 	mergeSort,
 	fastSort,
-	findKstNum
+	findKstNum,
+	bucketSort,
+	counterSort
 }

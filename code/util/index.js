@@ -1,4 +1,5 @@
 const chalk = require("chalk")
+const Mock = require("mockjs")
 const colors = ["blue", "green", "red", "yellow"]
 const log = {}
 
@@ -30,8 +31,17 @@ const getRandomArray = size => {
 	return result
 }
 
+const getPhoneNumbers = n => {
+	let result = []
+	for (let i = 0; i < n; i++) {
+		result.push(Mock.Random.integer(10000))
+	}
+	return result
+}
+
 module.exports = {
 	log,
 	timer,
-	getRandomArray
+	getRandomArray,
+	getPhoneNumbers
 }
