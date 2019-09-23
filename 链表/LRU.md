@@ -1,8 +1,30 @@
 # LRU缓存算法
 
+[Leetcode 142](https://leetcode-cn.com/problems/lru-cache/)
+
 ## 描述
 
-LRU(Least Recently Used)算法，即最近最少使用策略。如何用单链表来解决这个问题
+运用你所掌握的数据结构，设计和实现一个LRU(最近最少使用缓存机制)，它应该支持如下操作，获取数据get和写入数据put
+
+获取数据 get(key) - 如果密钥 (key) 存在于缓存中，则获取密钥的值（总是正数），否则返回 -1。
+
+写入数据 put(key, value) - 如果密钥不存在，则写入其数据值。当缓存容量达到上限时，它应该在写入新数据之前删除最近最少使用的数据值，从而为新的数据值留出空间。
+
+示例
+
+```
+LRUCache cache = new LRUCache( 2 /* 缓存容量 */ );
+
+cache.put(1, 1);
+cache.put(2, 2);
+cache.get(1);       // 返回  1
+cache.put(3, 3);    // 该操作会使得密钥 2 作废
+cache.get(2);       // 返回 -1 (未找到)
+cache.put(4, 4);    // 该操作会使得密钥 1 作废
+cache.get(1);       // 返回 -1 (未找到)
+cache.get(3);       // 返回  3
+cache.get(4);       // 返回  
+```
 
 ## 思路
 
@@ -18,3 +40,123 @@ LRU(Least Recently Used)算法，即最近最少使用策略。如何用单链�
 </details>
 
 ## 代码
+
+<details>
+<summary>点击展开</summary>
+
+```
+/**
+ * @param {number} capacity
+ */
+var LRUCache = function(capacity) {
+	this.capacity = capacity
+	this.hashmap = {}
+	this.head = null
+	this.tail = null
+	this.length = 0
+}
+
+/**
+ * @param {number} key
+ * @return {number}
+ */
+LRUCache.prototype.get = function(key) {
+	let res = -1
+	let node = this.head
+
+	// Search if key exists
+	while (node && node.key !== key) {
+		node = node.next
+	}
+	if (node) {
+		res = node.value
+		let newNode = { key, value: node.value, next: null, prev: null }
+		// Delete
+		if (node.prev) {
+			node.prev.next = node.next
+		} else {
+			this.head = this.head.next ? this.head.next : null
+		}
+		if (node.next) {
+			node.next.prev = node.prev
+		} else {
+			this.tail = this.tail.prev ? this.tail.prev : null
+		}
+		// Insert to head
+		if (this.head) {
+			newNode.next = this.head
+			this.head.prev = newNode
+			this.head = newNode
+		} else {
+			this.head = newNode
+			this.tail = newNode
+		}
+		// Check whether length <= capacity
+		if (this.length > this.capacity) {
+			this.tail.prev.next = null
+			this.tail = this.tail.prev
+		}
+	}
+
+	return res
+}
+
+/**
+ * @param {number} key
+ * @param {number} value
+ * @return {void}
+ */
+LRUCache.prototype.put = function(key, value) {
+	let node = this.head
+	let newNode = { key, value, next: null, prev: null }
+	if (!node) {
+		this.length++
+		this.head = newNode
+		this.tail = newNode
+		return
+	}
+	// Search if key exists
+	while (node && node.key !== key) {
+		node = node.next
+	}
+	// If existed then delete
+	if (node) {
+		if (node.prev) {
+			node.prev.next = node.next
+		} else {
+			this.head = this.head.next ? this.head.next : null
+		}
+		if (node.next) {
+			node.next.prev = node.prev
+		} else {
+			this.tail = this.tail.prev ? this.tail.prev : null
+		}
+	} else {
+		this.length++
+	}
+	// Insert to head
+	if (this.head) {
+		newNode.next = this.head
+		this.head.prev = newNode
+		this.head = newNode
+	} else {
+		this.head = newNode
+		this.tail = newNode
+	}
+	// Check whether length <= capacity
+	if (this.length > this.capacity) {
+		this.tail.prev.next = null
+		this.tail = this.tail.prev
+		this.length--
+	}
+}
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * var obj = new LRUCache(capacity)
+ * var param_1 = obj.get(key)
+ * obj.put(key,value)
+ */
+```
+
+</details>
