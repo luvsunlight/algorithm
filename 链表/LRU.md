@@ -1,6 +1,6 @@
 # LRU缓存算法
 
-[Leetcode 142](https://leetcode-cn.com/problems/lru-cache/)
+[**Leetcode 142**](https://leetcode-cn.com/problems/lru-cache/)
 
 ## 描述
 
