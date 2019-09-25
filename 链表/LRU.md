@@ -37,12 +37,16 @@ cache.get(4);       // 返回
 
 如果没找到对应数据，则有两种情况，一个是缓存满了，则删除尾节点，然后将数据插入到头部，另外一个是缓存没满，则将数据插入到头部
 
+那么我们可以看到真正占时间复杂度的操作是查找，删除，添加。那么散列表可以让我们以O(1)的复杂度进行查找，双向链表可以让我们以O(1)的形式对指定的节点进行删除和增加，两者相结合，就可以以O(1)的时间复杂度完成LRU缓存
+
 </details>
 
 ## 代码
 
 <details>
 <summary>点击展开</summary>
+
+1. 普通的双链表
 
 ```
 /**
@@ -159,4 +163,104 @@ LRUCache.prototype.put = function(key, value) {
  */
 ```
 
+2. 散列表+双链表
+
+```
+/**
+ * @param {number} capacity
+ */
+var LRUCache = function(capacity) {
+	this.capacity = capacity
+	this.hashtable = {}
+	this.length = 0
+	this.head = null
+	this.tail = null
+}
+
+/**
+ * @param {number} key
+ * @return {number}
+ */
+LRUCache.prototype.get = function(key) {
+	let res = -1
+	if (typeof this.hashtable[key] !== "undefined") {
+		// If exists, delete it
+		let node = this.hashtable[key]
+		let newNode = { key, value: node.value, next: null, prev: null }
+		res = node.value
+		if (node.prev) {
+			node.prev.next = node.next
+		} else {
+			this.head = this.head.next ? this.head.next : null
+		}
+		if (node.next) {
+			node.next.prev = node.prev
+		} else {
+			this.tail = this.tail.prev ? this.tail.prev : null
+		}
+
+		// Insert to head
+		if (this.head) {
+			newNode.next = this.head
+			this.head.prev = newNode
+			this.head = newNode
+		} else {
+			this.head = newNode
+			this.tail = newNode
+		}
+		// Insert to HashTable
+		this.hashtable[key] = newNode
+		// Check whether length <= capacity
+		if (this.length > this.capacity) {
+			this.hashtable[this.tail.key] = undefined
+			this.tail.prev.next = null
+			this.tail = this.tail.prev
+		}
+	}
+	return res
+}
+
+/**
+ * @param {number} key
+ * @param {number} value
+ * @return {void}
+ */
+LRUCache.prototype.put = function(key, value) {
+	let newNode = { key, value, next: null, prev: null }
+	// If exists, delete it
+	if (typeof this.hashtable[key] !== "undefined") {
+		let node = this.hashtable[key]
+		if (node.prev) {
+			node.prev.next = node.next
+		} else {
+			this.head = this.head.next ? this.head.next : null
+		}
+		if (node.next) {
+			node.next.prev = node.prev
+		} else {
+			this.tail = this.tail.prev ? this.tail.prev : null
+		}
+	} else {
+		this.length++
+	}
+	// Insert to head
+	if (this.head) {
+		newNode.next = this.head
+		this.head.prev = newNode
+		this.head = newNode
+	} else {
+		this.head = newNode
+		this.tail = newNode
+	}
+	// Insert to HashTable
+	this.hashtable[key] = newNode
+	// Check whether length <= capacity
+	if (this.length > this.capacity) {
+		this.hashtable[this.tail.key] = undefined
+		this.tail.prev.next = null
+		this.tail = this.tail.prev
+		this.length--
+	}
+}
+```
 </details>
