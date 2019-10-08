@@ -9,3 +9,5 @@
 [**04. twoSum(两数之和)**](https://github.com/luvsunlight/algorithm/blob/master/%E6%95%B0%E7%BB%84/twoSum.md)
 
 [**05. containerWithMostWater(盛最多水的容器)**](https://github.com/luvsunlight/algorithm/blob/master/%E6%95%B0%E7%BB%84/twoSum.md)
+
+[**06. singleNumber(只出现一次的数字)**](https://github.com/luvsunlight/algorithm/blob/master/%E6%95%B0%E7%BB%84/singleNumver.md)
