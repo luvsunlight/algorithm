@@ -1,3 +1,5 @@
+[👈 Back](https://github.com/luvsunlight/algorithm/tree/master/%E6%95%B0%E7%BB%84)
+
 # 可动态扩容的数组
 
 ## 描述

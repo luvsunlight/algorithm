@@ -1,6 +1,6 @@
-# LinkedList (链表)
+[👈 Back](https://github.com/luvsunlight/algorithm)
 
-[⬅️ Back](https://github.com/luvsunlight/algorithm)
+# LinkedList (链表)
 
 [**01. 实现单链表，循环链表，双向链表，支持增删操作**](https://github.com/luvsunlight/algorithm/blob/master/%E9%93%BE%E8%A1%A8/baseLinkedLists.md)
 

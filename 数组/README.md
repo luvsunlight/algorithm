@@ -1,6 +1,6 @@
-# Array (数组)
+[👈 Back](https://github.com/luvsunlight/algorithm)
 
-[⬅️ Back](https://github.com/luvsunlight/algorithm)
+# Array (数组)
 
 [**01. 实现一个支持动态扩容的数组**](https://github.com/luvsunlight/algorithm/blob/master/%E6%95%B0%E7%BB%84/dynamicEnlarge.md)
 

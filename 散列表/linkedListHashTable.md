@@ -1,3 +1,5 @@
+[👈 Back](https://github.com/luvsunlight/algorithm/tree/master/%E6%95%A3%E5%88%97%E8%A1%A8)
+
 # linkedListHashTable (使用链表法解决散列表冲突)
 
 ## 描述

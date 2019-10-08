@@ -1,3 +1,5 @@
+[👈 Back](https://github.com/luvsunlight/algorithm/tree/master/%E6%A0%88)
+
 # 链式栈和顺序栈
 
 ## 描述

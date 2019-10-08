@@ -1,3 +1,5 @@
+[👈 Back](https://github.com/luvsunlight/algorithm/tree/master/%E9%98%9F%E5%88%97)
+
 # 顺序队列和链式队列
 
 ## 描述

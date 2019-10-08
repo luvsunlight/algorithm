@@ -1,3 +1,5 @@
+[👈 Back](https://github.com/luvsunlight/algorithm/tree/master/%E6%A0%88)
+
 # 用栈模拟浏览器的前进后退
 
 ## 描述

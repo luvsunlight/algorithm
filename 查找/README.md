@@ -1,6 +1,6 @@
-# Search (查找)
+[👈 Back](https://github.com/luvsunlight/algorithm)
 
-[⬅️ Back](https://github.com/luvsunlight/algorithm)
+# Search (查找)
 
 **01. 实现一个有序数组的二分查找算法**
 

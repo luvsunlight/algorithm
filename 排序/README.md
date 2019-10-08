@@ -1,6 +1,6 @@
-# Sort (排序)
+[👈 Back](https://github.com/luvsunlight/algorithm)
 
-[⬅️ Back](https://github.com/luvsunlight/algorithm)
+# Sort (排序)
 
 **01. 冒泡排序**
 

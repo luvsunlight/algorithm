@@ -1,6 +1,6 @@
-# Stack (栈)
+[👈 Back](https://github.com/luvsunlight/algorithm)
 
-[⬅️ Back](https://github.com/luvsunlight/algorithm)
+# Stack (栈)
 
 [**01. 顺序栈和链式栈**](https://github.com/luvsunlight/algorithm/tree/master/%E6%A0%88/stacks.md)
 

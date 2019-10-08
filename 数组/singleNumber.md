@@ -1,3 +1,5 @@
+[👈 Back](https://github.com/luvsunlight/algorithm/tree/master/%E6%95%B0%E7%BB%84)
+
 # singleNumber(只出现一次的数字)
 
 [**Leetcode 136**](https://leetcode-cn.com/problems/single-number/)
