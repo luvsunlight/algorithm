@@ -1,42 +1,15 @@
 /**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
+ * @param {number[]} nums
+ * @return {number}
  */
-/**
- * @param {ListNode} head
- * @param {number} val
- * @return {ListNode}
- */
-var removeElements = function(head, val) {
-	let node = head
-	let oldNode = head
-	while (node) {
-		if (node.val === val) {
-			if (node === head) {
-				head = head.next
-				node = head
-				oldNode = head
-				continue
-			} else {
-				oldNode.next = node.next
-			}
-		} else {
-			oldNode = node
+var removeDuplicates = function(nums) {
+	let [i, j] = [0, 1]
+	for (i; i < nums.length - 1; i++) {
+		if (nums[i] < nums[i + 1]) {
+			nums[j++] = nums[i + 1]
 		}
-		node = node.next
 	}
-	return head
+	return nums.length === 0 ? 0 : j
 }
 
-console.log(
-	removeElements(
-		{
-			val: 1,
-			next: null
-		},
-		2
-	)
-)
+console.log(removeDuplicates([1, 2, 2, 3]))
