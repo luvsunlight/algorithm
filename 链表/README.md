@@ -10,10 +10,12 @@
 
 [**04. 求链表的中间节点**](https://github.com/luvsunlight/algorithm/blob/master/%E9%93%BE%E8%A1%A8/getMiddleNode.md)
 
-[**05. 链表中环的检测**](https://github.com/luvsunlight/algorithm/blob/master/%E9%93%BE%E8%A1%A8/detectCycle.md)
+[**05. linkedListCycle (链表中环的检测)**](https://github.com/luvsunlight/algorithm/blob/master/%E9%93%BE%E8%A1%A8/detectCycle.md)
 
 [**06. 删除链表倒数第n个节点**](https://github.com/luvsunlight/algorithm/blob/master/%E9%93%BE%E8%A1%A8/deleteInverseNode.md)
 
 [**07. LRU算法**](https://github.com/luvsunlight/algorithm/blob/master/%E9%93%BE%E8%A1%A8/LRU.md)
 
 [**08. 判断单链表是否为回文字符串**](https://github.com/luvsunlight/algorithm/blob/master/%E9%93%BE%E8%A1%A8/isLinkedListAPalindrome.md)
+
+[**09. mergeKSortedList (合并k个排序链表)**](https://github.com/luvsunlight/algorithm/blob/master/%E9%93%BE%E8%A1%A8/mergeKSortedList.md)

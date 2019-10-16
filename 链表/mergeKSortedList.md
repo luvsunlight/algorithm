@@ -1,3 +1,40 @@
+[👈 Back](https://github.com/luvsunlight/algorithm/tree/master/%E9%93%BE%E8%A1%A8)
+
+# mergeKSortedList (合并k个排序链表)
+
+[**Leetcode 23**](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
+
+## 描述
+
+合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。
+
+示例:
+
+```
+输入:
+[
+  1->4->5,
+  1->3->4,
+  2->6
+]
+输出: 1->1->2->3->4->4->5->6
+```
+
+## 思路
+
+<details>
+<summary>点击展开</summary>
+这个题当然可以暴力解，我们直接对k个链表两两合并，甚至使用分治的思路都可以，但是这么做始终效率非常低，那么有没有更适合的合并多个小文件是堆最典型的应用
+
+我们首先拿每个链表的第一个元素建一个大小为k的小顶堆，然后拿出堆的最小元素放入新链表，并且从拿出来的那个链表中取下一个元素，如此循环直至所有链表偶读没有元素可以取
+</details>
+
+## 代码
+
+<details>
+<summary>点击展开</summary>
+
+```
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
@@ -107,6 +144,6 @@ var mergeKLists = function(lists) {
 	}
 	return res
 }
+```
 
-let a = mergeKLists([{ val: null, next: null }])
-console.log(a)
+</details>
