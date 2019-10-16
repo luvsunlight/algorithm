@@ -2,14 +2,16 @@
  * @param {number[]} nums
  * @return {number}
  */
-var removeDuplicates = function(nums) {
-	let [i, j] = [0, 1]
-	for (i; i < nums.length - 1; i++) {
-		if (nums[i] < nums[i + 1]) {
-			nums[j++] = nums[i + 1]
+var majorityElement = function(nums) {
+	let hashmap = {}
+	return nums.find(n => {
+		if (!hashmap[n]) {
+			hashmap[n] = 1
+		} else {
+			hashmap[n]++
 		}
-	}
-	return nums.length === 0 ? 0 : j
+		return hashmap[n] > nums.length / 2
+	})
 }
 
-console.log(removeDuplicates([1, 2, 2, 3]))
+console.log(majorityElement([2, 2, 1, 1, 1, 2, 2]))
