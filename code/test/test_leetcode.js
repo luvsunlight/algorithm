@@ -1,112 +1,59 @@
 /**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
+ * @param {character[][]} board
+ * @return {boolean}
  */
-/**
- * @param {ListNode[]} lists
- * @return {ListNode}
- */
-class Heap {
-	constructor(arr) {
-		this.heap = [0, ...arr]
-		this.operator = "<"
-	}
-	setHeap() {
-		for (let i = Math.floor((this.heap.length - 1) / 2); i > 0; i--) {
-			this.heaper(i)
-		}
-	}
-	operate(a, b) {
-		if (this.operator === "<") return a < b
-		if (this.operator === ">") return a > b
-	}
-	heaper(i) {
-		while (this.heap[2 * i]) {
-			let [center, left, right] = [
-				this.heap[i],
-				this.heap[2 * i],
-				this.heap[2 * i + 1]
-			]
-			if (left && this.operate(left, center)) {
-				if (right && this.operate(right, left)) {
-					let temp = this.heap[i]
-					this.heap[i] = this.heap[2 * i + 1]
-					this.heap[2 * i + 1] = temp
-					i = 2 * i + 1
-				} else {
-					let temp = this.heap[i]
-					this.heap[i] = this.heap[2 * i]
-					this.heap[2 * i] = temp
-					i = 2 * i
-				}
-			} else if (right && this.operate(right, center)) {
-				let temp = this.heap[i]
-				this.heap[i] = this.heap[2 * i + 1]
-				this.heap[2 * i + 1] = temp
-				i = 2 * i + 1
+var isValidSudoku = function(board) {
+	for (let i = 0; i < 9; i++) {
+		let hashmap = {}
+		for (let j = 0; j < 9; j++) {
+			if (board[i][j] === ".") continue
+			if (hashmap[board[i][j]]) {
+				return false
 			} else {
-				break
+				hashmap[board[i][j]] = true
 			}
 		}
 	}
-	add(n) {
-		if (n) this.heap.push(n)
-		let i = this.heap.length - 1
-		while (i > 1) {
-			let parent = Math.floor(i / 2)
-			if (this.operate(this.heap[i], this.heap[parent])) {
-				let temp = this.heap[i]
-				this.heap[i] = this.heap[parent]
-				this.heap[parent] = temp
-				i = parent
+	for (let i = 0; i < 9; i++) {
+		let hashmap = {}
+		for (let j = 0; j < 9; j++) {
+			if (board[j][i] === ".") continue
+			if (hashmap[board[j][i]]) {
+				return false
 			} else {
-				break
+				hashmap[board[j][i]] = true
 			}
 		}
 	}
-	delete() {
-		if (this.heap.length > 2) {
-			this.heap[1] = this.heap.pop()
-			this.heaper(1)
-		} else {
-			this.heap.pop()
-		}
-	}
-}
-var mergeKLists = function(lists) {
-	if (lists.length === 0) return []
-	let [res, node] = [null, null]
-	let heap = new Heap([])
-	lists.map(list => {
-		if (list) heap.add(list.val)
-	})
-	if (heap.heap.length === 1) return []
-	while (true) {
-		let min = heap.heap[1]
-		heap.delete()
-		if (heap.heap.length === 0) break
-		if (res) {
-			node.next = { val: min, next: null }
-			node = node.next
-		} else {
-			res = { val: min, next: null }
-			node = res
-		}
-		for (let i = 0; i < lists.length; i++) {
-			if (lists[i] && lists[i].val === min) {
-				if (lists[i].next) {
-					heap.add(lists[i].next.val)
-					lists[i] = lists[i].next
+	for (let i = 0; i < 9; i += 3) {
+		for (let j = 0; j < 9; j += 3) {
+			let hashmap = {}
+			for (let m = i; m < i + 3; m++) {
+				for (let n = j; n < j + 3; n++) {
+					if (board[m][n] === ".") continue
+					if (hashmap[board[m][n]]) {
+						return false
+					} else {
+						hashmap[board[m][n]] = true
+					}
 				}
-				break
 			}
 		}
 	}
-	return res
+
+	return true
 }
 
-let a = mergeKLists([{ val: null, next: null }])
-console.log(a)
+console.log(
+	isValidSudoku([
+		[".", ".", ".", ".", "5", ".", ".", "1", "."],
+		[".", "4", ".", "3", ".", ".", ".", ".", "."],
+		[".", ".", ".", ".", ".", "3", ".", ".", "1"],
+		["8", ".", ".", ".", ".", ".", ".", "2", "."],
+		[".", ".", "2", ".", "7", ".", ".", ".", "."],
+		[".", "1", "5", ".", ".", ".", ".", ".", "."],
+		[".", ".", ".", ".", ".", "2", ".", ".", "."],
+		[".", "2", ".", "9", ".", ".", ".", ".", "."],
+		[".", ".", "4", ".", ".", ".", ".", ".", "."]
+	])
+)

@@ -53,3 +53,5 @@ const listSet = set => {
 }
 ```
 </details>
+
+[**04. climbStairs (爬楼梯)**](https://github.com/luvsunlight/algorithm/tree/master/递归/climbStairs)
