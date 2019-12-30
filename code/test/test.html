@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<style lang="">
+			.img {
+				width: 48%;
+			}
+		</style>
+		<title>Document</title>
+	</head>
+	<body>
+		<img
+			id="target"
+			class="img"
+			src="https://static001.geekbang.org/resource/image/0f/ac/0f6f4cc6d564df9986e0108cb8a427ac.jpg"
+			alt=""
+		/>
+		<canvas id="canvas" class="img"></canvas>
+		<script>
+			const img = document.getElementById("target")
+			const canvas = document.getElementById("canvas")
+			canvas.style.width = canvas.width
+			canvas.style.height = canvas.height
+			canvas.width = canvas.width * 2
+			canvas.height = canvas.height * 2
+			const ctx = canvas.getContext("2d")
+			img.onload = () => {
+				let { width, height } = img
+				canvas.height = height
+				ctx.drawImage(img, 0, 0, width, height)
+				let { data } = ctx.getImageData(0, 0, width, height)
+				for (let i = 0; i < data.length; i += 4) {
+					if (isBird(data, i, width, canvas)) {
+						;[data[i], data[i + 1]] = [data[i + 1] * 1.2, data[i]]
+					}
+				}
+				ctx.putImageData(imgData, 0, 0)
+			}
+			function isBird(data, i, width, height) {
+				let r = data[i]
+				let g = data[i + 1]
+				let b = data[i + 2]
+
+				let [h, s, l] = rgb2hsl(r, g, b)
+				return h < 200 && h > 80 && s > 0.23 && l < 0.84
+			}
+
+			function rgb2hsl(r, g, b) {
+				let r1 = r / 255
+				let g1 = g / 255
+				let b1 = b / 255
+
+				let min = Math.min(r1, g1, b1)
+				let max = Math.max(r1, g1, b1)
+
+				let l = (min + max) / 2
+				let s
+				let h
+
+				if (l < 0.5) {
+					s = (max - min) / (max + min)
+				} else {
+					s = (max - min) / (2 - max - min)
+				}
+
+				if (max === r1) {
+					h = (r1 - b1) / (max - min)
+				} else if (max === g1) {
+					h = 2 + (b1 - r1) / (max - min)
+				} else if (max === b1) {
+					h = 4 + (r1 - g1) / (max - min)
+				}
+
+				h *= 60
+
+				while (h < 0) {
+					h += 360
+				}
+
+				return [h, s, l]
+			}
+		</script>
+	</body>
+</html>
